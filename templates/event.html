@@ -1,0 +1,53 @@
+{% extends "main_base.html"%}
+{% block content %}
+<form action="/event" method="POST" enctype="multipart/form-data">
+  <h3><u>Event Details</u></h3><br>
+  <div class="form-group">
+    <label for="titlt">Title<span style="color: red;">*</span></label>  
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter the event title" required>
+  </div>
+  <div class="form-group">
+    <label for="event_dt">Start Date<span style="color: red;">*</span></label>
+    <input type="date" name="sd" class="form-control" id="exampleFormControlInput1" required>
+  </div>
+  <div class="form-group">
+    <label for="event_dt">Start Time<span style="color: red;">*</span></label>
+    <input type="time" name="st" class="form-control" id="exampleFormControlInput1" required>
+  </div>
+  <div class="form-group">
+    <label for="event_dt">End Date<span style="color: red;">*</span></label>
+    <input type="date" name="ed" class="form-control" id="exampleFormControlInput1" required>
+  </div>
+  <div class="form-group">
+    <label for="event_dt">End Time<span style="color: red;">*</span></label>
+    <input type="time" name="et" class="form-control" id="exampleFormControlInput1" required>
+  </div>
+  <div class="form-group">
+    <label for="moe">Mode of event<span style="color: red;">*</span></label>
+    <select class="form-control" id="sel1" name="moe" required>
+      <option>--Select--</option>
+      <option>Online</option>
+      <option>Offline</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="loc">If Mode is Offline, Enter location</label>
+    <input type="text" name="loc" class="form-control" id="exampleFormControlInput1" placeholder="location">
+  </div>
+  <div class="form-group">
+    <label for="maxp">Maixmum No. of Participants<span style="color: red;">*</span></label>
+    <input type="text" name="maxp" class="form-control" id="exampleFormControlInput1" placeholder="Maximum No. of Participants" required>
+  </div>
+  <div class="form-group">
+    <label for="desc">Description<span style="color: red;">*</span></label>
+    <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3" required>Description contain detials of who were conducting this event like that</textarea>
+  </div>
+  <div class="form-group">
+    <label for="banner">Banner</label>
+    <input type="file" name="ban" class="form-control" id="exampleFormControlFile1">
+  </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+  <br>
+</form>
+
+{% endblock %}

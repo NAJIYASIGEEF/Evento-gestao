@@ -1,0 +1,35 @@
+{% extends "main_base.html"%}
+{% block content %}
+<form action="/bio1" method="POST">
+  <h3><u>Course Details</u></h3><br>
+  {% for i in res %}
+  <input type="hidden" name="id1" value="{{i[0]}}">
+  {% endfor %}
+  <div class="form-group">
+    <label for="course">Course</label>  
+    <input type="text" name="cou" class="form-control" id="exampleFormControlInput1" placeholder="Which course you are studying?">
+  </div>
+  <div class="form-group">
+    <label for="branch">Branch</label>
+    <input type="text" name="bch" class="form-control" id="exampleFormControlInput1" placeholder="Enter your branch">
+  </div>
+  <div class="form-group">
+    <label for="college">College Name</label>
+    <input type="text" name="colnm" class="form-control" id="exampleFormControlInput1" placeholder="Enter your College Name">
+  </div>
+  <div class="form-group">
+    <label for="place">Place</label>
+    <input type="text" name="pl" class="form-control" id="exampleFormControlInput1" placeholder="Location of your college">
+  </div>
+  <div class="form-group">
+    <label for="yog">Year of Graduation</label>
+    <input type="number" name="yog" class="form-control" id="exampleFormControlInput1" placeholder="Year of Graduation">
+  </div>
+  <div class="form-group">
+    <label for="interest">Interested Areas</label>
+    <input type="text" name="ia" class="form-control" id="exampleFormControlInput1" placeholder="Your Interested Areas">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <br>
+</form>
+{% endblock %}
