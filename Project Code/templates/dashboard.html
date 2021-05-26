@@ -1,0 +1,30 @@
+{% extends "main_base.html"%}
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+               <script>
+                function myFunction() {
+                  alert("{{message}}");
+                }
+                myFunction()
+                </script>
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}
+{% block content %}
+<div class="col-sm-9">
+  <h3>Upcoming Events</h3><br>
+  <div class="row">
+    {% for i in res %}
+    <div class="col-sm-3">
+      <div class="well">
+        <img src="{{ url_for('static', filename=i[9])}}" alt="" height="100vh" width="100vw">
+        <h4>{{i[2]}}</h4>
+        <p>Staring Date: {{i[3]}}</p>
+        <a href="/dashboard_des/{{i[0]}}"><button>Details</button></a> 
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
