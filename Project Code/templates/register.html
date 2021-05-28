@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Evento</title>  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("{{ url_for('static', filename='image/bg1.jpg')}}");
+}
+* {box-sizing: border-box}
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 2vw;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col">
+            {% if error %}  
+            <script>
+                function myFunction() {
+                  alert("{{error}}");
+                }
+                myFunction()
+                </script>
+        {% endif %}  
+            <div style="background-color: white; border-radius: 2vw;">
+    
+    <form action="/register" method="POST">
+      <div class="container">
+        <h2>Sign Up</h2>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        
+        <label for="name" style="padding-left: 1vw;"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required>
+
+        <label for="email" style="padding-left: 1vw;"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+    
+        <label for="psw" style="padding-left: 1vw;"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    
+        <label for="psw-repeat" style="padding-left: 1vw;"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+            
+        <div class="clearfix">
+            <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+          <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+      </div>
+    </form>
+          </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+</body>
+</html>

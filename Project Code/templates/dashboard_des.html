@@ -1,0 +1,63 @@
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+               <script>
+                function myFunction() {
+                  alert("{{message}}");
+                }
+                myFunction()
+                </script>
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}
+{% extends "main_base.html"%}
+{% block content %}
+<head>
+    <style>
+        .button1 {
+  background-color: #06163A;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 6px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+    </style>
+</head>
+{% for i in res %}
+<table style="font-weight: bold; font-size: 3vh;">
+    <br>
+    <tr>
+        <td>
+            <h2>{{i[2]}}</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>Starting Date: {{i[3]}}</td>
+    </tr>
+    <tr>
+        <td>Starting Time: {{i[10]}}</td>
+    </tr>
+    <tr>
+        <td>Ending Date: {{i[4]}}</td>
+    </tr>
+    <tr>
+        <td>Ending Time: {{i[11]}}</td>
+    </tr>
+    <tr>
+        <td>Mode: {{i[5]}}</td>
+    </tr>
+    <tr>
+        <td>Description: {{i[8]}}</td>
+    </tr>
+</table>
+<br>
+<a button class="button1" href="/dashboard">Back</button></a>
+<a button class="button1" href="/dashboard_cancel/{{i[0]}}">Cancel</button></a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Evento</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+      body{
+          background-color: #F9F8F7;
+      }
+    
+    .row.content {height: 625px
+    }
+    
+    
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+      width: 15vw;
+    }
+
+    .affix {
+    left:16vw;
+    position: relative;
+
+}
+        
+    
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs" style="background-color: #06163A;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <br>
+      <a href="/bio2" style="color: white; text-decoration: none;"><img src="{{ url_for('static', filename='image/userimg2.png')}}"> Profile</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active1"><a href="/dashboard" style="color: white;"><img src="{{ url_for('static', filename='image/dashboardimg.png')}}" alt=""> Dashboard</a></li>
+        <li><a href="/event_main" style="color: white;"><img src="{{ url_for('static', filename='image/eventimg.png')}}" alt=""> Events</a></li>
+        <li><a href="/register_main" style="color: white;"><img src="{{ url_for('static', filename='image/registerimg.png')}}" alt=""> Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs" style="background-color: #06163A; position: fixed;">
+      <br><h3><a href="/bio2" style="color: white; text-decoration: none;"><img src="{{ url_for('static', filename='image/userimg2.png')}}"> Profile</a></h3>
+      <br><br>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active1"><a href="/dashboard" style="color: white;"><img src="{{ url_for('static', filename='image/dashboardimg.png')}}" alt=""> Dashboard</a></li>
+        <li><a href="/event_main" style="color: white;"><img src="{{ url_for('static', filename='image/eventimg.png')}}" alt=""> Events</a></li>
+        <li><a href="/register_main" style="color: white;"><img src="{{ url_for('static', filename='image/registerimg.png')}}" alt=""> Register</a></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <nav class="navbar navbar-inverse col-sm-9 affix" style="width: 83vw; background-color: #F9F8F7; border: none;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color: black; font-weight: bold; font-size: 5vh;">Event Portal</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/dashboard" style="color: black;"><img src="{{ url_for('static', filename='image/homeimg.png')}}" alt=""> home</a></li>
+          <li><a href="/" style="color: black;"><img src="{{ url_for('static', filename='image/logoutimg.png')}}" alt=""> Log Out</a></li>
+        </ul>
+      </div>
+      <hr style="border: 1px solid black;">
+    </nav>
+  
+    <div  style="padding-left: 18vw; padding-right: 3vw; padding-top: 16vh;">
+      {% block content %}
+      {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

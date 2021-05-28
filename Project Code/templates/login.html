@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evento</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("{{ url_for('static', filename='image/bg1.jpg')}}");
+  }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2vw;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col" style="padding-top: 8vh;">
+        {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+               <script>
+                function myFunction() {
+                  alert("{{message}}");
+                }
+                myFunction()
+                </script>
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}
+        <div style="background-color: white; border-radius: 3vw;">
+        <h2 style="text-align: center;"><br>Login Form</h2>
+        <form action="" method="post">
+        <div class="imgcontainer">
+          <img src="{{ url_for('static', filename='image/loginimg.png')}}" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+          <label for="uname" style="padding-left: 1vw;"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="unm" required>
+          <label for="psw" style="padding-left: 1vw;"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="pwd" required>
+          <button type="submit">Login</button>
+          <p style="padding-left: 1vw;">Need an Account? <a href="/register">Register</a></p>
+        </div>
+        </form>
+      </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
